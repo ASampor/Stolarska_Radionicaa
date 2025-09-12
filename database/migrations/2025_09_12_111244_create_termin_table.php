@@ -15,6 +15,7 @@ class CreateTerminTable extends Migration
 
             $table->index('Zahtev_id', 'Zahtev_id_idx');
             $table->index('Stolar_id', 'Stolar_id_idx');
+            $table->index('Administrator_id', 'Administrator_id_idx');
 
             $table->foreign('Zahtev_id','FK_Termin_Zahtev')
                   ->references('ID_Zahtev')->on('Zahtev')
@@ -32,10 +33,8 @@ class CreateTerminTable extends Migration
         Schema::table('Termin', function(Blueprint $table) {
             $table->dropForeign('FK_Termin_Zahtev');
             $table->dropForeign('FK_Termin_Stolar');
-            $table->dropForeign('FK_Termin_Administrator');
             $table->dropIndex('Zahtev_id_idx');
             $table->dropIndex('Stolar_id_idx');
-            $table->dropIndex('Administrator_id_idx');
         });
         Schema::dropIfExists('Termin');
     }

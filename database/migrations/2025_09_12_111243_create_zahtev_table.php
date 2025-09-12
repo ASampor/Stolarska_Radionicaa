@@ -15,8 +15,8 @@ class CreateZahtevTable extends Migration
             // default CURDATE()
             $table->date('Datum_kreiranja')->default(DB::raw('CURRENT_DATE'));
             $table->unsignedInteger('Klijent_id');
-            $table->string('Lokacija', 255);
-            $table->string('Telefon', 10);
+            $table->string('Lokacija', 255)->nullable();
+            $table->string('Telefon', 15)->nullable();
 
             $table->index('Klijent_id', 'Klijent_id_idx');
             $table->foreign('Klijent_id','FK_Zahtev_Klijent')
@@ -34,4 +34,3 @@ class CreateZahtevTable extends Migration
         Schema::dropIfExists('Zahtev');
     }
 }
-
