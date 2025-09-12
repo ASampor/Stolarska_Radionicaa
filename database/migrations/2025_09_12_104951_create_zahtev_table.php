@@ -34,3 +34,4 @@ class CreateZahtevTable extends Migration
         Schema::dropIfExists('Zahtev');
     }
 }
+
