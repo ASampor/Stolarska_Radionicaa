@@ -12,11 +12,9 @@ class CreateTerminTable extends Migration
             $table->dateTime('Datum_vreme');
             $table->unsignedInteger('Zahtev_id');
             $table->unsignedInteger('Stolar_id');
-            $table->unsignedInteger('Administrator_id');
 
             $table->index('Zahtev_id', 'Zahtev_id_idx');
             $table->index('Stolar_id', 'Stolar_id_idx');
-            $table->index('Administrator_id', 'Administrator_id_idx');
 
             $table->foreign('Zahtev_id','FK_Termin_Zahtev')
                   ->references('ID_Zahtev')->on('Zahtev')
@@ -26,9 +24,6 @@ class CreateTerminTable extends Migration
                   ->references('ID_Stolar')->on('Stolar')
                   ->onDelete('restrict')->onUpdate('cascade');
 
-            $table->foreign('Administrator_id','FK_Termin_Administrator')
-                  ->references('ID_Administrator')->on('Administrator')
-                  ->onDelete('restrict')->onUpdate('cascade');
         });
     }
 
