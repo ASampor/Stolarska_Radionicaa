@@ -15,7 +15,6 @@ class CreateTerminTable extends Migration
 
             $table->index('Zahtev_id', 'Zahtev_id_idx');
             $table->index('Stolar_id', 'Stolar_id_idx');
-            $table->index('Administrator_id', 'Administrator_id_idx');
 
             $table->foreign('Zahtev_id','FK_Termin_Zahtev')
                   ->references('ID_Zahtev')->on('Zahtev')
