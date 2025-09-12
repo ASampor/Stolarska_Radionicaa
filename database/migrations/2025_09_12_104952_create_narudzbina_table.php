@@ -8,6 +8,7 @@ class CreateNarudzbinaTable extends Migration
     public function up()
     {
         Schema::create('Narudzbina', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('ID_Narudzbina');
             $table->string('Specifikacija', 255);
             $table->date('Rok');

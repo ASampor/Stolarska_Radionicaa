@@ -8,6 +8,7 @@ class CreateStolarTable extends Migration
     public function up()
     {
         Schema::create('Stolar', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('ID_Stolar');
             $table->string('Ime', 15);
             $table->string('Prezime', 25);
