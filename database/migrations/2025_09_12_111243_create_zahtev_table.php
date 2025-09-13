@@ -8,21 +8,16 @@ class CreateZahtevTable extends Migration
 {
     public function up()
     {
-        Schema::create('Zahtev', function (Blueprint $table) {
-            $table->increments('ID_Zahtev');
-            $table->string('Vrsta_proizvoda', 20);
-            $table->string('Opis', 200)->nullable();
-            // default CURDATE()
-            $table->date('Datum_kreiranja')->default(DB::raw('CURRENT_DATE'));
-            $table->unsignedInteger('Klijent_id');
-            $table->string('Lokacija', 255)->nullable();
-            $table->string('Telefon', 15)->nullable();
-
-            $table->index('Klijent_id', 'Klijent_id_idx');
-            $table->foreign('Klijent_id','FK_Zahtev_Klijent')
-                  ->references('ID_Klijent')->on('Klijent')
-                  ->onDelete('restrict')->onUpdate('cascade');
+        Schema::create('zahtevi', function (Blueprint $table) {
+            $table->id();
+            $table->string('Vrsta_proizvoda');
+            $table->text('Opis')->nullable();
+            $table->string('Lokacija');
+            $table->string('Telefon');
+            $table->foreignId('Klijent_id')->constrained('users')->onDelete('cascade');
+            $table->timestamps(); // automatski dodaje created_at i updated_at
         });
+
     }
 
     public function down()

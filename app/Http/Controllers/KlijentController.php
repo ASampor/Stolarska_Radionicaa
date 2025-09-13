@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klijent;
+use App\Models\Zahtev;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -71,4 +72,14 @@ class KlijentController extends Controller
         $klijent->delete();
         return redirect()->route('klijenti.index')->with('success', 'Klijent obrisan.');
     }
+
+    public function dashboard()
+    {
+        return view('klijent.dashboard'); // ovo je tvoj Blade fajl
+    }
+
+
+    
+    
+
 }

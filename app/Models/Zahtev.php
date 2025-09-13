@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Zahtev extends Model
 {
-    protected $table = 'Zahtev';
+    protected $table = 'Zahtevi';
     protected $primaryKey = 'ID_Zahtev';
     public $timestamps = false;
 
@@ -28,4 +28,6 @@ class Zahtev extends Model
     {
         return $this->hasOne(Termin::class, 'Zahtev_id', 'ID_Zahtev');
     }
+
+    
 }

@@ -25,12 +25,12 @@
 
             <div class="mb-3">
                 <label for="password" class="form-label">Lozinka</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <input type="password" class="form-control" id="lozinka" name="lozinka" required>
             </div>
 
             <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Ponovite lozinku</label>
-                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                <input type="password" class="form-control" id="lozinka_confirmation" name="lozinka_confirmation" required>
             </div>
 
             <button type="submit" class="btn btn-dark w-100">Registruj se</button>
