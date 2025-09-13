@@ -14,7 +14,7 @@ class Sastanak extends Model
 
     public function zahtev()
     {
-        return $this->belongsTo(Zahtev::class, 'Zahtev_id', 'ID_Zahtev');
+        return $this->belongsTo(Zahtev::class, 'Zahtev_id', 'id');
     }
 
     public function stolar()

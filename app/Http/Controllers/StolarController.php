@@ -36,10 +36,12 @@ class StolarController extends Controller
 
     public function storeSastanak(Request $request)
     {
+
         $request->validate([
-            'Zahtev_id' => 'required|exists:zahtevi,ID_Zahtev',
+            'Zahtev_id' => 'required|exists:zahtevi,id',
             'Datum_vreme' => 'required|date|after:now',
         ]);
+
 
         $user = Auth::user();
         $stolar = Stolar::where('Email', $user->email)->first();

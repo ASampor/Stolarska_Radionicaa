@@ -21,9 +21,10 @@
                 <select name="Zahtev_id" id="Zahtev_id" class="form-select" required>
                     <option value="">-- Odaberite zahtev --</option>
                     @foreach($zahtevi as $zahtev)
-                        <option value="{{ $zahtev->ID_Zahtev }}">
-                            {{ $zahtev->id}}. {{ $zahtev->Vrsta_proizvoda }} ({{ \Carbon\Carbon::parse($zahtev->created_at)->format('d.m.Y') }})
+                        <option value="{{ $zahtev->id }}">
+                            {{ $zahtev->id }}. {{ $zahtev->Vrsta_proizvoda }} ({{ \Carbon\Carbon::parse($zahtev->created_at)->format('d.m.Y') }})
                         </option>
+
                     @endforeach
                 </select>
             </div>
@@ -35,25 +36,38 @@
         </form>
     </div>
 
-    <!-- Prikaz svih sastanaka -->
     <h3 class="mb-3">📅 Svi sastanci</h3>
     @if($sastanci->isEmpty())
         <p class="text-muted">Trenutno nema zakazanih sastanaka.</p>
     @else
         <div class="row g-4">
             @foreach($sastanci as $sastanak)
-                <div class="col-md-4">
-                    <div class="card shadow-sm rounded-4 h-100 border-light p-3">
-                        <h5 class="mb-2">{{ $sastanak->zahtev->Vrsta_proizvoda ?? 'Nepoznato' }}</h5>
-                        <p class="text-muted mb-1"><strong>📍 Lokacija:</strong> {{ $sastanak->zahtev->Lokacija ?? 'N/A' }}</p>
-                        <p class="text-muted mb-1"><strong>📞 Telefon:</strong> {{ $sastanak->zahtev->Telefon ?? 'N/A' }}</p>
-                        <p class="text-muted"><strong>🗓 Datum i vreme:</strong> {{ \Carbon\Carbon::parse($sastanak->Datum_vreme)->format('d.m.Y H:i') }}</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm rounded-4 h-100 border-light p-4">
+                        <!-- Dominantno vreme sastanka -->
+                        <div class="text-center mb-3">
+                            <h2 class="fw-bold text-primary">
+                                {{ \Carbon\Carbon::parse($sastanak->Datum_vreme)->format('d.m.Y') }}
+                            </h2>
+                            <h4 class="fw-semibold text-dark">
+                                {{ \Carbon\Carbon::parse($sastanak->Datum_vreme)->format('H:i') }}
+                            </h4>
+                        </div>
+
+                        <!-- Podaci o klijentu -->
+                        <div class="border-top pt-3">
+                            <p class="mb-2"><strong>👤 Klijent:</strong> 
+                                {{ $sastanak->zahtev->klijent->Ime ?? 'Nepoznat' }}
+                                {{ $sastanak->zahtev->klijent->Prezime ?? '' }}
+                            </p>
+                            <p class="mb-2"><strong>📍 Lokacija:</strong> {{ $sastanak->zahtev->Lokacija ?? 'N/A' }}</p>
+                            <p class="mb-0"><strong>📞 Telefon:</strong> {{ $sastanak->zahtev->Telefon ?? 'N/A' }}</p>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
-    @endif
-</div>
+@endif
 
 <style>
 .text-brown {
