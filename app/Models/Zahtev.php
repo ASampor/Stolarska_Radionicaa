@@ -8,7 +8,7 @@ class Zahtev extends Model
 {
     protected $table = 'Zahtevi';
     protected $primaryKey = 'ID_Zahtev';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'Vrsta_proizvoda',
@@ -18,6 +18,8 @@ class Zahtev extends Model
         'Telefon',
         'Klijent_id'
     ];
+
+    protected $dates = ['created_at', 'updated_at'];
 
     public function klijent()
     {

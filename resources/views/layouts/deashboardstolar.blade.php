@@ -19,15 +19,21 @@
             @php $user = auth()->user(); @endphp
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('klijent.dashboard') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('klijent.dashboard') }}">
-                        Početna
+                    <a class="nav-link {{ request()->routeIs('stolar.dashboard') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('stolar.dashboard') }}">
+                        Zahtevi
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('klijent.pregled') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('klijent.pregled') }}">
-                        Moje narudžbine
+                    <a class="nav-link {{ request()->routeIs('stolar.termini') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('stolar.termini') }}">
+                        Termini
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('stolar.narudzbine') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('stolar.narudzbine') }}">
+                        Narudžbine
+                    </a>
+                </li>
+
             </ul>
 
             <span class="navbar-text text-secondary mx-3">

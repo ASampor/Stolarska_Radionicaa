@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Klijent;
 use App\Models\Zahtev;
+use App\Models\Narudzbina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class KlijentController extends Controller
 {
@@ -73,13 +75,35 @@ class KlijentController extends Controller
         return redirect()->route('klijenti.index')->with('success', 'Klijent obrisan.');
     }
 
+    // Dashboard
     public function dashboard()
     {
-        return view('klijent.dashboard'); // ovo je tvoj Blade fajl
+        $user = Auth::user(); // Laravel user
+        return view('klijent.dashboard', compact('user'));
     }
 
+    // Prikaz svih zahteva
+    public function zahtevi()
+    {
+        $user = Auth::user();
+        $zahtevi = Zahtev::where('Klijent_id', $user->id)
+                         ->orderBy('created_at', 'desc')
+                         ->get();
 
-    
-    
+        return view('klijent.zahtevi', compact('zahtevi'));
+    }
 
+    public function pregled()
+    {
+        $user = Auth::user();
+
+        $zahtevi = Zahtev::where('Klijent_id', $user->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $narudzbine = Narudzbina::where('Klijent_id', $user->id)
+        ->get();
+
+        return view('klijent.pregled', compact('zahtevi', 'narudzbine'));
+    }
 }

@@ -17,7 +17,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('home') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('home') }}">
-                        🏠 Početna
+                         Početna
                     </a>
                 </li>
                 <li class="nav-item">

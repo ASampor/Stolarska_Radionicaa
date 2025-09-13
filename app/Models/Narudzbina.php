@@ -10,7 +10,7 @@ class Narudzbina extends Model
     protected $primaryKey = 'ID_Narudzbina';
     public $timestamps = false;
 
-    protected $fillable = ['Specifikacija', 'Rok', 'Klijent_id', 'Stolar_id', 'Cena', 'Status_id'];
+    protected $fillable = ['Specifikacija', 'Rok', 'Klijent_id', 'Stolar_id', 'Cena', 'Status_id', 'Vrsta_proizvoda',];
 
     public function klijent()
     {

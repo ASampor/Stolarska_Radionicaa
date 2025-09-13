@@ -13,18 +13,19 @@ class ZahtevController extends Controller
             'Vrsta_proizvoda' => 'required|string|max:255',
             'Opis' => 'nullable|string',
             'Lokacija' => 'required|string|max:255',
-            'Telefon' => 'required|string|max:50',
-            'Klijent_id' => 'required|integer|exists:users,id',
+            'Telefon' => 'required|string|max:20',
+            'Klijent_id' => 'required|exists:users,id'
         ]);
 
-        $zahtev = new Zahtev();
-        $zahtev->Vrsta_proizvoda = $request->Vrsta_proizvoda;
-        $zahtev->Opis = $request->Opis;
-        $zahtev->Lokacija = $request->Lokacija;
-        $zahtev->Telefon = $request->Telefon;
-        $zahtev->Klijent_id = $request->Klijent_id;
-        $zahtev->save();
+        // Kreiramo novi zahtev
+        Zahtev::create([
+            'Vrsta_proizvoda' => $request->Vrsta_proizvoda,
+            'Opis' => $request->Opis,
+            'Lokacija' => $request->Lokacija,
+            'Telefon' => $request->Telefon,
+            'Klijent_id' => $request->Klijent_id
+        ]);
 
-        return redirect()->route('klijent.dashboard')->with('success', 'Zahtev je uspešno poslat!');
+        return redirect()->route('klijent.dashboard')->with('success', 'Zahtev uspešno dodat!');
     }
 }
