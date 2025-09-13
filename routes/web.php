@@ -29,7 +29,12 @@ Route::middleware(['auth'])->group(function () {
     // stolar
     Route::get('/stolar/dashboard', [StolarController::class, 'dashboard'])->name('stolar.dashboard');
     Route::get('/stolar/zahtevi', [StolarController::class, 'zahtevi'])->name('stolar.zahtevi');
-    Route::get('/stolar/termini', [StolarController::class, 'termini'])->name('stolar.termini');
-    Route::post('/stolar/termini/store', [StolarController::class, 'storeTermin'])->name('stolar.termini.store');
+    Route::get('/stolar/sastanci', [StolarController::class, 'sastanci'])->name('stolar.sastanci');
+    Route::post('/stolar/sastanci/store', [StolarController::class, 'storeSastanak'])->name('stolar.sastanci.store');
     Route::get('/stolar/narudzbine', [StolarController::class, 'narudzbine'])->name('stolar.narudzbine');
+    Route::get('/stolar/narudzbine/{id}/edit', [StolarController::class, 'editNarudzbina'])
+    ->name('stolar.narudzbine.edit');
+    Route::put('/stolar/narudzbine/{id}', [StolarController::class, 'updateNarudzbina'])->name('stolar.narudzbine.update');
+    Route::post('/stolar/narudzbine/store', [StolarController::class, 'storeNarudzbina'])->name('stolar.narudzbine.store');
+
 });

@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('stolar.termini') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('stolar.termini') }}">
+                    <a class="nav-link {{ request()->routeIs('stolar.sastanci') ? 'active btn btn-dark text-white' : '' }}" href="{{ route('stolar.sastanci') }}">
                         Termini
                     </a>
                 </li>

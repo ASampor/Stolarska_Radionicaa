@@ -7,14 +7,14 @@
 @section('content')
 <div class="container py-5">
     <div class="text-center mb-5">
-        <h1 class="fw-bold text-brown">🗓 Zakazani termini</h1>
-        <p class="text-muted">Termini sastanka sa klijentima</p>
+        <h1 class="fw-bold text-brown">🗓 Zakazani sastanci</h1>
+        <p class="text-muted">Sastanci sa klijentima</p>
     </div>
 
-    <!-- Forma za dodavanje termina -->
+    <!-- Forma za dodavanje sastanka -->
     <div class="card mb-5 shadow-sm rounded-4 p-4 border-light">
-        <h4 class="mb-3">Dodaj novi termin</h4>
-        <form action="{{ route('stolar.termini.store') }}" method="POST">
+        <h4 class="mb-3">Dodaj novi sastanak</h4>
+        <form action="{{ route('stolar.sastanci.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="Zahtev_id" class="form-label">Izaberite zahtev</label>
@@ -31,23 +31,23 @@
                 <label for="Datum_vreme" class="form-label">Datum i vreme</label>
                 <input type="datetime-local" name="Datum_vreme" id="Datum_vreme" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-dark rounded-pill">Zakazi termin</button>
+            <button type="submit" class="btn btn-dark rounded-pill">Zakazi sastanak</button>
         </form>
     </div>
 
-    <!-- Prikaz svih termina -->
-    <h3 class="mb-3">📅 Svi termini</h3>
-    @if($termini->isEmpty())
-        <p class="text-muted">Trenutno nema zakazanih termina.</p>
+    <!-- Prikaz svih sastanaka -->
+    <h3 class="mb-3">📅 Svi sastanci</h3>
+    @if($sastanci->isEmpty())
+        <p class="text-muted">Trenutno nema zakazanih sastanaka.</p>
     @else
         <div class="row g-4">
-            @foreach($termini as $termin)
+            @foreach($sastanci as $sastanak)
                 <div class="col-md-4">
                     <div class="card shadow-sm rounded-4 h-100 border-light p-3">
-                        <h5 class="mb-2">{{ $termin->zahtev->Vrsta_proizvoda ?? 'Nepoznato' }}</h5>
-                        <p class="text-muted mb-1"><strong>📍 Lokacija:</strong> {{ $termin->zahtev->Lokacija ?? 'N/A' }}</p>
-                        <p class="text-muted mb-1"><strong>📞 Telefon:</strong> {{ $termin->zahtev->Telefon ?? 'N/A' }}</p>
-                        <p class="text-muted"><strong>🗓 Datum i vreme:</strong> {{ \Carbon\Carbon::parse($termin->Datum_vreme)->format('d.m.Y H:i') }}</p>
+                        <h5 class="mb-2">{{ $sastanak->zahtev->Vrsta_proizvoda ?? 'Nepoznato' }}</h5>
+                        <p class="text-muted mb-1"><strong>📍 Lokacija:</strong> {{ $sastanak->zahtev->Lokacija ?? 'N/A' }}</p>
+                        <p class="text-muted mb-1"><strong>📞 Telefon:</strong> {{ $sastanak->zahtev->Telefon ?? 'N/A' }}</p>
+                        <p class="text-muted"><strong>🗓 Datum i vreme:</strong> {{ \Carbon\Carbon::parse($sastanak->Datum_vreme)->format('d.m.Y H:i') }}</p>
                     </div>
                 </div>
             @endforeach

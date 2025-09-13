@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Termin extends Model
+class Sastanak extends Model
 {
-    protected $table = 'Termin';
-    protected $primaryKey = 'ID_Termin';
-    public $timestamps = false;
+    protected $table = 'sastanak';
+    protected $primaryKey = 'ID_Sastanak';
+    public $timestamps = true;
 
     protected $fillable = ['Datum_vreme', 'Zahtev_id', 'Stolar_id'];
 

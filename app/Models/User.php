@@ -47,5 +47,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Narudzbina::class, 'klijent_id');
     }
+
+    // User.php
+    public function stolar()
+    {
+        return $this->hasOne(Stolar::class, 'Email', 'email');
+    }
+
 }
 
