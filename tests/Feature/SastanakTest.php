@@ -34,8 +34,8 @@ class SastanakTest extends TestCase
             'Ime' => 'Petar',
             'Prezime' => 'Petrović',
             'Email' => $this->stolarUser->email,
-            'Lozinka' => bcrypt('tajna'), // OBAVEZNO jer NOT NULL
-            'Telefon' => '061234567',     // OBAVEZNO da prođe test
+            'Lozinka' => bcrypt('tajna'), 
+            'Telefon' => '061234567',     
         ]);
 
         // 3. Kreiramo klijenta

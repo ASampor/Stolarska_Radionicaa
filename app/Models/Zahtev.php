@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Zahtev extends Model
 {
-    protected $table = 'zahtevi';   // tačno ime tabele
-    protected $primaryKey = 'id';   // primarni ključ je 'id'
+    protected $table = 'zahtevi';   
+    protected $primaryKey = 'id';  
     public $timestamps = true;
 
     protected $fillable = [

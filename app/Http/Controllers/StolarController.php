@@ -79,7 +79,6 @@ class StolarController extends Controller
         return view('stolar.narudzbine', compact('narudzbine', 'klijenti', 'statusi'));
     }
 
-    // Edit stranica (više ti ne treba jer koristimo modal)
     public function editNarudzbina($id)
     {
         $narudzbina = Narudzbina::findOrFail($id);

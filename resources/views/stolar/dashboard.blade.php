@@ -56,7 +56,7 @@
 
 <style>
 .text-brown {
-    color: #555; /* topla braon boja */
+    color: #555; 
 }
 .vrsta-proizvoda {
     font-size: 1.2rem;

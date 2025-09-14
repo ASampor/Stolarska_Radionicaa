@@ -14,10 +14,9 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
-    protected $table = 'users'; // ime tvoje tabele
+    protected $table = 'users'; 
     public $incrementing = true;
-    // Ako je primarni ključ drugačiji od 'id', recimo 'ID_Klijent', promeni:
-    protected $primaryKey = 'id'; // promeni u 'ID_Klijent' ako je potrebno
+    protected $primaryKey = 'id'; 
 
 
     protected $fillable = [

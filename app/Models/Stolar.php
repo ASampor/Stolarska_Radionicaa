@@ -12,7 +12,7 @@ class Stolar extends Model
 
     protected $fillable = ['Ime', 'Prezime', 'Email', 'Lozinka', 'Telefon'];
 
-    public function termini()
+    public function sastanak()
     {
         return $this->hasMany(Sastanak::class, 'Stolar_id', 'ID_Stolar');
     }
