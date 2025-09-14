@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 Use App\Models\Zahtev;
@@ -11,6 +11,7 @@ Use App\Models\Narudzbina;
 
 class User extends Authenticatable
 {
+    use HasFactory;
     use Notifiable;
 
     protected $table = 'users'; // ime tvoje tabele
@@ -18,13 +19,13 @@ class User extends Authenticatable
     // Ako je primarni ključ drugačiji od 'id', recimo 'ID_Klijent', promeni:
     protected $primaryKey = 'id'; // promeni u 'ID_Klijent' ako je potrebno
 
+
     protected $fillable = [
         'ime',
         'prezime',
         'email',
         'password',
         'role',
-        'personal_id'
     ];
 
     protected $hidden = [
@@ -32,10 +33,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function klijent()
-    {
-        return $this->belongsTo(Klijent::class, 'person_id', 'ID_Klijent');
-    }
 
     public function zahtevi()
     {

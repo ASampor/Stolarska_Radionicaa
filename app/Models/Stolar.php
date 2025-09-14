@@ -14,7 +14,7 @@ class Stolar extends Model
 
     public function termini()
     {
-        return $this->hasMany(Termin::class, 'Stolar_id', 'ID_Stolar');
+        return $this->hasMany(Sastanak::class, 'Stolar_id', 'ID_Stolar');
     }
 
     public function narudzbine()

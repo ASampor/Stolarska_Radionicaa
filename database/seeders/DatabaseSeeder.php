@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sastanak;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +18,7 @@ class DatabaseSeeder extends Seeder
             KlijentSeeder::class,
             StolarSeeder::class,
             ZahtevSeeder::class,
-            TerminSeeder::class,
+            SastanakSeeder::class,
             NarudzbinaSeeder::class,
         ]);
     }
